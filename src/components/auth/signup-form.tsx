@@ -3,10 +3,12 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Input } from "../ui/input";
+
 import { Button } from "../ui/button";
 
-export const SigninForm = () => {
+export const SignupForm = () => {
   const router = useRouter();
+  const [nameField, setNameField] = useState("");
   const [emailField, setEmailField] = useState("");
   const [passwordField, setPasswordField] = useState("");
 
@@ -16,6 +18,12 @@ export const SigninForm = () => {
 
   return (
     <>
+      <Input
+        placeholder="Digite seu nome"
+        value={nameField}
+        onChange={(t) => setNameField(t)}
+      />
+
       <Input
         placeholder="Digite seu e-mail"
         value={emailField}
@@ -29,7 +37,7 @@ export const SigninForm = () => {
         password
       />
 
-      <Button label="Entrar" size={1} onClick={handleEnterButton} />
+      <Button label="Criar conta" size={1} onClick={handleEnterButton} />
     </>
   );
 };
